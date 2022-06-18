@@ -9,12 +9,20 @@ import { padding } from '@mui/system';
 //import { useSelector, useDispatch } from 'react-redux'
 //import { logOut } from '../../slices/userSlice'
 import { useNavigate } from 'react-router-dom'
+import {useAuthState} from 'react-firebase-hooks/auth'; 
+import  {auth, db}  from '../../firebaseConf'
+import { getAuth, signOut } from "firebase/auth";
 
 function Navbar() {
 
     const [isScrolled, setScrolled] = useState(false)
     const [isOpen, setOpen] = useState(false)
     const [isOpen2, setOpen2] = useState(false)
+    const [user] = useAuthState(auth);
+
+    const signOut = () => {
+        auth.signOut().catch(alert)
+    }
     //const d = useSelector(state => state.user)
     //const dispatch = useDispatch()
     //const navigate = useNavigate()
@@ -32,6 +40,7 @@ function Navbar() {
                 setOpen(true)
             }
         }
+        
 
     }, [isOpen, isOpen2])
 
@@ -63,7 +72,11 @@ function Navbar() {
             <div className="list">
                 <div className="item"> <NavLink to='/'  >Home</NavLink> </div>
                 <div className="item"> <NavLink to='/dashboard' >Dashboard</NavLink> </div>
-                <div className="item">Login</div>
+                <div className="item">
+                  {
+                    user ? <NavLink to='/login' onClick={signOut}>Logout</NavLink> : <NavLink to='/login'>Login</NavLink>
+                  }
+                </div>
                 {/* {d.isLoggedIn ?
                     <div className="item"  ><AccountCircleIcon onClick={() => setOpen2(!isOpen2)} />
                         {isOpen2 &&
