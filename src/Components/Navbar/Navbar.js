@@ -63,6 +63,7 @@ function Navbar() {
             <div className="list">
                 <div className="item"> <NavLink to='/'  >Home</NavLink> </div>
                 <div className="item"> <NavLink to='/dashboard' >Dashboard</NavLink> </div>
+                <div className="item"> <NavLink to='/OneMillion' >One Billions</NavLink> </div>
                 <div className="item">Login</div>
                 {/* {d.isLoggedIn ?
                     <div className="item"  ><AccountCircleIcon onClick={() => setOpen2(!isOpen2)} />
