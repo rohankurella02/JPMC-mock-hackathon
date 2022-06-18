@@ -3,7 +3,9 @@ import './AdminDashboard.css'
 
 function AdminDashboard() {
   return (
-    <div style={{color: "white"}}>AdminDashboard</div>
+    <div style={{color: "white"}} className="admin">
+        <h1>Dashboard</h1>
+    </div>
   )
 }
 
