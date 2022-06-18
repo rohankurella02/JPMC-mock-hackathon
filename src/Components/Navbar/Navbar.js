@@ -71,7 +71,14 @@ function Navbar() {
             <div className="navName"><img style={{width: "100px"}} src="https://www.uwbengaluru.org/images/logo.jpg" alt="" /></div>
             <div className="list">
                 <div className="item"> <NavLink to='/'  >Home</NavLink> </div>
-                <div className="item"> <NavLink to='/dashboard' >Dashboard</NavLink> </div>
+                <div className="item"> {
+                  user && <>
+                  {user.email == "rohankurella02@gmail.com" ? 
+                    <NavLink to='/user-dashboard'  >Dashboard</NavLink>
+                    : <NavLink to='/admin-dashboard'  >Dashboard</NavLink>
+                  }
+                  </>
+                } </div>
                 <div className="item">
                   {
                     user ? <NavLink to='/login' onClick={signOut}>Logout</NavLink> : <NavLink to='/login'>Login</NavLink>

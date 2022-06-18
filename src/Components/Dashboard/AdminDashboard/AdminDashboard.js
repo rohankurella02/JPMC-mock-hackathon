@@ -3,7 +3,7 @@ import './AdminDashboard.css'
 
 function AdminDashboard() {
   return (
-    <div>AdminDashboard</div>
+    <div style={{color: "white"}}>AdminDashboard</div>
   )
 }
 

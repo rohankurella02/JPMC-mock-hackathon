@@ -3,7 +3,7 @@ import './UserDashboard.css'
 
 function Dashboard() {
   return (
-    <div>User Dashboard</div>
+    <div style={{color: "white"}}>User Dashboard</div>
   )
 }
 
